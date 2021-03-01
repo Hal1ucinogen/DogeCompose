@@ -16,31 +16,42 @@
 package com.example.androiddevchallenge
 
 import android.os.Bundle
+import android.view.View
 import androidx.activity.compose.setContent
+import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
-import androidx.compose.material.MaterialTheme
-import androidx.compose.material.Surface
-import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
+import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.graphics.toArgb
 import androidx.compose.ui.tooling.preview.Preview
+import com.example.androiddevchallenge.ui.Home
 import com.example.androiddevchallenge.ui.theme.MyTheme
 
 class MainActivity : AppCompatActivity() {
+
+    private val viewModel by viewModels<HomeViewModel>()
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        // TODO Adapt Edge-to-Edge
+//        window.decorView.systemUiVisibility = window.decorView.systemUiVisibility or
+//                View.SYSTEM_UI_FLAG_LAYOUT_STABLE or
+//                View.SYSTEM_UI_FLAG_LIGHT_NAVIGATION_BAR
+        window.statusBarColor = Color(0xFF6F896D).toArgb()
+        window.navigationBarColor = Color(0xFFBB788B).toArgb()
         setContent {
             MyTheme {
-                MyApp()
+                Home()
             }
         }
     }
-}
 
-// Start building your app here!
-@Composable
-fun MyApp() {
-    Surface(color = MaterialTheme.colors.background) {
-        Text(text = "Ready... Set... GO!")
+    override fun onBackPressed() {
+        if (viewModel.currentCat != null) {
+            viewModel.dismissCat()
+        } else {
+            super.onBackPressed()
+        }
     }
 }
 
@@ -48,7 +59,7 @@ fun MyApp() {
 @Composable
 fun LightPreview() {
     MyTheme {
-        MyApp()
+        Home()
     }
 }
 
@@ -56,6 +67,6 @@ fun LightPreview() {
 @Composable
 fun DarkPreview() {
     MyTheme(darkTheme = true) {
-        MyApp()
+        Home()
     }
 }
