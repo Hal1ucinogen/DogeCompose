@@ -44,4 +44,5 @@ class MainViewModel : ViewModel() {
     fun dismissCat() {
         currentCat = null
     }
+
 }
