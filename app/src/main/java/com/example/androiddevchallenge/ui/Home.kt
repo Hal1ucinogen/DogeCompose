@@ -23,7 +23,7 @@ import androidx.compose.material.TopAppBar
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.rememberCoroutineScope
 import androidx.lifecycle.viewmodel.compose.viewModel
-import com.example.androiddevchallenge.HomeViewModel
+import com.example.androiddevchallenge.MainViewModel
 import kotlinx.coroutines.launch
 
 @Composable
@@ -42,7 +42,7 @@ fun Home() {
             SnackbarHost(snackBarHostState)
         }
     ) {
-        val viewModel: HomeViewModel = viewModel()
+        val viewModel: MainViewModel = viewModel()
         val current = viewModel.currentCat
         CatList(viewModel.cats) {
             if (current == null) {
