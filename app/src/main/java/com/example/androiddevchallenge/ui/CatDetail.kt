@@ -18,12 +18,12 @@ package com.example.androiddevchallenge.ui
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Arrangement
-import androidx.compose.foundation.layout.Row
-import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Box
-import androidx.compose.foundation.layout.fillMaxWidth
-import androidx.compose.foundation.layout.fillMaxSize
+import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.aspectRatio
+import androidx.compose.foundation.layout.fillMaxSize
+import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
 import androidx.compose.material.Button
 import androidx.compose.material.MaterialTheme
@@ -113,6 +113,10 @@ fun CatDetail(cat: Cat, onAdopt: (Cat) -> Unit = {}) {
 @Composable
 fun CatDetailPreview() {
     CatDetail(
-        Cat("Oliver", "Beijing", "Adult", "Male", "Large", R.drawable.ragroll01)
+        Cat(
+            "Oliver", "Beijing", "Adult",
+            "Male", "Large", R.drawable.ragroll01
+        )
     )
+
 }
