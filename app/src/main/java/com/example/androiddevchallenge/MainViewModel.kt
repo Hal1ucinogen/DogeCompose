@@ -21,7 +21,7 @@ import androidx.compose.runtime.setValue
 import androidx.lifecycle.ViewModel
 import com.example.androiddevchallenge.data.Cat
 
-class HomeViewModel : ViewModel() {
+class MainViewModel : ViewModel() {
     val cats by mutableStateOf(
         listOf(
             Cat("Oliver", "Beijing", "Adult", "Male", "Large", R.drawable.ragroll01),
