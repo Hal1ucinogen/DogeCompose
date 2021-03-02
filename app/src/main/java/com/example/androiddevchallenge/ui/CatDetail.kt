@@ -118,5 +118,4 @@ fun CatDetailPreview() {
             "Male", "Large", R.drawable.ragroll01
         )
     )
-
 }
