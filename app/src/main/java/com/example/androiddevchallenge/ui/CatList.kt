@@ -20,7 +20,6 @@ import androidx.compose.foundation.background
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
-import androidx.compose.foundation.layout.PaddingValues
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
@@ -41,11 +40,17 @@ import androidx.compose.ui.unit.dp
 import com.example.androiddevchallenge.R
 import com.example.androiddevchallenge.data.Cat
 import com.example.androiddevchallenge.ui.theme.MyTheme
+import com.google.accompanist.insets.LocalWindowInsets
+import com.google.accompanist.insets.toPaddingValues
 
 @Composable
 fun CatList(cats: List<Cat>, onClick: (Cat) -> Unit) {
     LazyColumn(
-        contentPadding = PaddingValues(16.dp),
+        contentPadding = LocalWindowInsets.current.systemBars.toPaddingValues(
+            top = false,
+            additionalHorizontal = 16.dp,
+            additionalVertical = 16.dp
+        ),
         verticalArrangement = Arrangement.spacedBy(16.dp),
         modifier = Modifier.background(MaterialTheme.colors.secondary)
     ) {

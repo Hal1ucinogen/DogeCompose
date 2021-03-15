@@ -19,11 +19,13 @@ import androidx.compose.material.Scaffold
 import androidx.compose.material.SnackbarHost
 import androidx.compose.material.SnackbarHostState
 import androidx.compose.material.Text
-import androidx.compose.material.TopAppBar
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.rememberCoroutineScope
+import androidx.compose.ui.Modifier
 import androidx.lifecycle.viewmodel.compose.viewModel
+import com.example.androiddevchallenge.InsetAwareTopAppBar
 import com.example.androiddevchallenge.MainViewModel
+import com.google.accompanist.insets.navigationBarsPadding
 import kotlinx.coroutines.launch
 
 @Composable
@@ -32,14 +34,17 @@ fun Home() {
     val coroutineScope = rememberCoroutineScope()
     Scaffold(
         topBar = {
-            TopAppBar(
+            InsetAwareTopAppBar(
                 title = {
                     Text("Ragroll Adoption")
                 }
             )
         },
         snackbarHost = {
-            SnackbarHost(snackBarHostState)
+            SnackbarHost(
+                snackBarHostState,
+                modifier = Modifier.navigationBarsPadding()
+            )
         }
     ) {
         val viewModel: MainViewModel = viewModel()
